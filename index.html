@@ -1,15 +1,236 @@
 <!DOCTYPE html>
-<html lang='en'>
-
+<html lang="en">
 <head>
-<meta charset='utf-8'>
-<title> Audiophix </title>
-<link rel='stylesheet' type='text/css' href='css/style.css'/>
-</head>
+    <meta charset="utf-8">
+    <title>A00987471 - Audiophix </title>
+    
+    
+    <style>
+        
+        
+         @font-face {
+   font-family: GinoraRegular;
+   src: url(Typeface/GinóraSansRegular.otf);
+}
+        
+        *{
+            background-color: red;
+        }
+        
+        
+        /* startbutton */
+        
+        #startCont{
+           position: absolute;
+            width: 300px;
+            height: auto;
+            margin: auto;
+            padding: 10px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            
+            
+        }
+        
+         #startBtn {
+     animation: colorAnim 2s infinite;
+            font-family: GinoraRegular;
+            font-size: 20pt;
+    }
+        
+         @keyframes colorAnim {
+           0% {color: white;}
+           25% {color:darkgrey;}     
+           50% {color:gray;}
+           100% {color: black;}
+      } 
 
-<body>
-<div id=display></div>
+        /* input form */
+        
+           #container{
+            width: 500px;
+            height: auto;
+            padding: 10px;
+            margin: auto;
+            border-radius: 6px;
+            box-shadow: 10px 10px 5px #888888;
+               display: none;
+               background-color: #ffffff;
+               transition: 1s;
+        }
+  
+        #form1{
+            
+            background-color: #ffffff;
+        }
+        
+        #field1{
+            background-color: #ffffff;
+        }
+        
+        form p, h3, h2{
+            background-color: #ffffff;
+        }
+        
+        option, select, legend {
+            background-color: #ffffff;
+        }
+        
+        
+        
+       
+    </style>
+    
+
+    </head>
+    
+    <body>
+        
+        
+        <div id="startCont"><p id="startBtn">Click me to start</p></div>
+        
+        
+        
+        <div id="container">
+    
+        <form id = "form1" name = "form 1">
+            
+        <fieldset id="field1">
+            <legend><h2>Fill Me Out:</h2></legend>
+            <h3>What Kind of Music do you like?</h3>
+           <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Hip-Hop Sounds,">Rap/Hip-Hop</p>
+            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Ambient Sounds,">Ambient Sound</p>
+            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Electronic Sounds,">Electronic</p>
+          
+            
+        
+            
+                       <h3>What Art Style do you like?</h3>
+            
+  <select onchange="myFilling(this.value)">
+     <option name="filling" value="0">Select a Style</option>
+    <option name="filling" value="Cartoon Style,">Cartoon</option>
+    <option name="filling" value="Realistic Style,">Realistic</option>
+    <option name="filling" value="Abstract Style,">Abstract</option>
+      
+  </select>
+  
+            
+
+            <h3>What Kind of Mood are you in?</h3>
+           <p> <input type="radio" name="mood" onclick="myMood(this.value)" value="and a Happy Mood">Happy</p>
+            <p> <input type="radio" name="mood" onclick="myMood(this.value)" value="and a Sad Mood">Sad</p>
+            <p> <input type="radio" name="mood" onclick="myMood(this.value)" value="and a Meh Mood">Meh</p>
+          
+                 <br>
+            <p id="Results"></p>
+            
+            </fieldset>
+        
+ 
+       
+        </form>
+        </div>
+        
+        <script>
+            
+            
+        //start button onclick
+            var startBtn = document.getElementById("startBtn");
+            var startCont = document.getElementById("startCont");
+            
+            startBtn.addEventListener("click", function() {
+	 
+		document.body.removeChild(startCont);
+                
+            var Uform = document.getElementById("container");
+                Uform.style.display = "block";
+});
+            
+        //Form Functionality
+        
+            var sizeVal1 = '';
+    var sizeVal2 = '';
+    var sizeVal3 = '';
+	var sizeResult = '';
+            
+            
+            var moodVal1 = '';
+    var moodVal2 = '';
+    var moodVal3 = '';
+	var moodResult = '';
+        var moodResult = '';
+    
+        var fillingResult = '';
+        
+      var candlesResult = '';
+	var decorationsResult = '';  
+        
+        function mySize(size) {
+   
+	sizeResult = size;
+    if(size==20){
+        sizeVal1 = 'Hip-Hop Sounds';
+        console.log(sizeVal1);
+    }
+    if(size==25){
+        sizeVal2 = 'Ambient Sounds';
+        console.log(sizeVal2);
+    }
+    if(size==35){
+        sizeVal3 = 'Electronic Sounds';
+        console.log(sizeVal3);
+    } 
+  
+	upDateResults();
+    console.log(size);
+}
+        function myMood(mood) {
+   
+	moodResult = mood;
+    if(mood==20){
+        moodVal1 = 'Happy Mood';
+        console.log(moodVal1);
+    }
+    if(mood==25){
+        moodVal2 = 'Sad Mood';
+        console.log(moodVal2);
+    }
+    if(mood==35){
+        moodVal3 = 'Meh Mood';
+        console.log(moodVal3);
+    } 
+  
+	upDateResults();
+    console.log(mood);
+}
+        
+        function myFilling(filling) {
+   
+	fillingResult = filling;
+	upDateResults();
+    console.log(filling);
+}
+        
 
 
+        function upDateResults(){
+	
+	var totalAmount = sizeResult + " " + fillingResult +  candlesResult + " " + moodResult
+	document.getElementById("Results").innerHTML = "You have selected: " + totalAmount;
+	
+	
+	
+}
+            
+            
+            
+        </script>
+        
+        
+    </body>
+    
+    
+</html>
 
-</body>

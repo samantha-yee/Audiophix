@@ -1,0 +1,17 @@
+<svg id="Web" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 958 570.41641">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="479" y1="545.20821" x2="479" y2="14.99853" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c8ff2a"/>
+      <stop offset="1" stop-color="#00c5e9"/>
+    </linearGradient>
+  </defs>
+  <title>bluegreen</title>
+  <g id="backdrops">
+    <rect class="cls-1" width="958" height="570.41641"/>
+  </g>
+</svg>
