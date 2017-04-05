@@ -4,8 +4,11 @@
    src: url(Typeface/GinóraSansRegular.otf);
 }
         
-        *{
+        #bgImg{
+            width: 100vw;
+            height: 100vh;
             background-color: red;
+            transition: 1s;
         }
         
         
@@ -40,6 +43,10 @@
         /* input form */
         
            #container{
+               position: absolute;
+               top: 100px;
+               left: 0px;
+               right: 0px;
             width: 500px;
             height: auto;
             padding: 10px;
@@ -66,5 +73,17 @@
         
         option, select, legend {
             background-color: #ffffff;
+        }
+
+        #submitBtn{    
+	border: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,.24), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 6px;
+    background-color: #59a3d1;
+	color: #ffffff;
+	width: 22%;
+    text-align: center;
+    font-family: GinoraRegular;
+    font-size: 20pt;
         }
         

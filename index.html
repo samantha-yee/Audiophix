@@ -12,7 +12,7 @@
     
     <body>
         
-        
+        <div id="bgImg">
         <div id="startCont"><p id="startBtn">Click me to start</p></div>
         
         
@@ -50,15 +50,23 @@
           
                  <br>
             <p id="Results"></p>
-            
+            <br>
+            <div id="submitBtn">submit</div>
             </fieldset>
         
- 
+                
+            
+             
        
         </form>
         </div>
         
+        
+        </div>
         <script>
+            
+                 var backGround = document.getElementById("bgImg");
+            var formContainer = document.getElementById("container");
             
             
         //start button onclick
@@ -67,7 +75,7 @@
             
             startBtn.addEventListener("click", function() {
 	 
-		document.body.removeChild(startCont);
+		document.getElementById("bgImg").removeChild(startCont);
                 
             var Uform = document.getElementById("container");
                 Uform.style.display = "block";
@@ -75,36 +83,36 @@
             
         //Form Functionality
         
-            var sizeVal1 = '';
-    var sizeVal2 = '';
-    var sizeVal3 = '';
+        
+            
+    var sizeVal1 = false;
+    var sizeVal2 = false;
+    var sizeVal3 = false;
 	var sizeResult = '';
             
             
-            var moodVal1 = '';
-    var moodVal2 = '';
-    var moodVal3 = '';
+    var moodVal1 = false;
+    var moodVal2 = false;
+    var moodVal3 = false;
 	var moodResult = '';
-        var moodResult = '';
     
-        var fillingResult = '';
-        
-      var candlesResult = '';
-	var decorationsResult = '';  
+            var moodNum = 0;
+    
+        var fillingResult = ''; 
         
         function mySize(size) {
    
 	sizeResult = size;
-    if(size==20){
-        sizeVal1 = 'Hip-Hop Sounds';
+    if(size== "Cartoon Style,"){
+        sizeVal1 = true;
         console.log(sizeVal1);
     }
-    if(size==25){
-        sizeVal2 = 'Ambient Sounds';
+    if(size=="Ambient Sounds,"){
+        sizeVal2 = true;
         console.log(sizeVal2);
     }
-    if(size==35){
-        sizeVal3 = 'Electronic Sounds';
+    if(size=="Electronic Sounds,"){
+        sizeVal3 = true;
         console.log(sizeVal3);
     } 
   
@@ -114,16 +122,19 @@
         function myMood(mood) {
    
 	moodResult = mood;
-    if(mood==20){
-        moodVal1 = 'Happy Mood';
+    if(mood== "and a Happy Mood"){
+        moodVal1 = true;
+         moodNum = 1;
         console.log(moodVal1);
     }
-    if(mood==25){
-        moodVal2 = 'Sad Mood';
+    if(mood== "and a Sad Mood"){
+        moodVal2 = true;
+        moodNum = 2;
         console.log(moodVal2);
     }
-    if(mood==35){
-        moodVal3 = 'Meh Mood';
+    if(mood== "and a Meh Mood"){
+        moodVal3 = true;
+         moodNum = 3;
         console.log(moodVal3);
     } 
   
@@ -142,14 +153,34 @@
 
         function upDateResults(){
 	
-	var totalAmount = sizeResult + " " + fillingResult +  candlesResult + " " + moodResult
+	var totalAmount = sizeResult + " " + fillingResult + " " + moodResult
 	document.getElementById("Results").innerHTML = "You have selected: " + totalAmount;
 	
 	
 	
 }
             
+        //submit Button functions
             
+           
+            
+            var submitBtn = document.getElementById("submitBtn");
+            
+            submitBtn.addEventListener("click", function(){
+                
+                if(moodNum == 1){
+                    backGround.style.backgroundColor = "#ff00f5";
+                } 
+                
+                if(moodNum == 2){
+                    backGround.style.backgroundColor = "#05adeb";
+                } 
+                if(moodNum == 3){
+                    backGround.style.backgroundColor = "#81eb05";
+                }
+                
+                document.getElementById("bgImg").removeChild(formContainer);
+            });
             
         </script>
         
