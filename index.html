@@ -4,11 +4,244 @@
 <head>
 <meta charset='utf-8'>
 <title> Audiophix </title>
-<link rel='stylesheet' type='text/css' href='css/style.css'/>
+<link rel='stylesheet' type='text/css' href='style.css'/>
+<link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-<div id=display></div>
+<body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00); width:100vw; height:100vh">
+		<canvas id="canvas" width="100vw" height="100vh" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100vw; height:100vh; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+
+
+
+	<div id='bgswipe'>
+		<i id='left' class="fa fa-angle-double-left" aria-hidden="true" size='150%'></i>
+		<i id='right' class="fa fa-angle-double-right" aria-hidden="true"></i>
+	</div>
+
+<div id='img'></div>
+
+<img src='icon_info-03.png' width='50px' id='infoicon'></img>
+
+ <div id="startTag" onClick="init();">
+ 	<p>Click me to start tagging</p>
+ </div>
+
+ <div id='startKey'>
+ 	<p>Press any key to start tagging</p>
+ </div>
+
+  <div id='bgOpts'>
+ 	<p>
+ 		<img src='icon_bg-02.png' width='70px' id='bgicon'></img>
+ 		<ul id='bgSwitch'>
+ 			<li id='bg1'>•</li> 
+ 			<li id='bg2'>•</li> 
+ 			<li id='bg3'>•</li>
+ 		</ul>
+ 	</p>
+ </div>
+
+ <div id='learnmore-info'><p>Audiophix was created by Neelam Wooley and Sam Yee.  Two BCIT Digital Design and Development students from Vancouver who are passionate about the complimenting nature of art and music.</br>
+
+ They hope you enjoy their project.</p>
+ </div>
+     
+
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="moon animation.js"></script>
+
+
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="moon animation.js"></script>
+<script>
+
+//START ANIMATION
+
+var startTag = document.getElementById('startTag');
+
+startTag.addEventListener('click', function(){
+	animation_container.style.display = 'block';
+})
+
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	images = images||{};
+	ss = ss||{};
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt) {	
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.moonanimation();
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	function makeResponsive(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}			
+			canvas.width = w*pRatio*sRatio;			
+			canvas.height = h*pRatio*sRatio;
+			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
+			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;			
+			stage.scaleY = pRatio*sRatio;			
+			lastW = iw; lastH = ih; lastS = sRatio;		
+		}
+	}
+	makeResponsive(false,'both',false,1);	
+	fnStartAnimation();
+}
+
+    // BG CHANGE
+
+        var left = document.getElementById('left');
+        var right = document.getElementById('right');
+        var img = document.getElementById('img');
+        var num = 1
+        ;
+		
+        console.log(num);
+      
+        left.addEventListener('click', function () {
+            num--;
+            console.log(num + ' -');
+            if (num == 1) {
+                img.style.backgroundImage = 'url(audbg1.jpg)';
+            } else if (num == 0) {
+                img.style.backgroundImage = 'url(audbg3.jpg)';
+            } else if (num == -1) {
+                img.style.backgroundImage = 'url(audbg2.jpg)';
+            } else if (num == -2) {
+                img.style.backgroundImage = 'url(audbg1.jpg)';
+                num = 1;
+            }
+        })
+   
+        right.addEventListener('click', function () {
+            num++;
+            console.log(num + " +");
+            if (num == 1) {
+                img.style.backgroundImage = 'url(audbg1.jpg)';
+            } else if (num == 2) {
+                img.style.backgroundImage = 'url(audbg2.jpg)';
+            } else if (num == 3) {
+                img.style.backgroundImage = 'url(audbg3.jpg)';
+                num = 0;
+            }
+        });
+
+        // START TAGGING BTN
+       
+            var startKey = document.getElementById("startKey")
+            ,	bgicon = document.getElementById('bgicon')
+           	,	bgSwitch = document.getElementById('bgSwitch')
+           	,	bg1 = document.getElementById('bg1')
+           	,	bg2 = document.getElementById('bg2')
+           	,	bg3 = document.getElementById('bg3')
+           	,	bgswipe = document.getElementById('bgswipe')
+           	,	activeBg = 1;
+           	;
+
+
+            //THIS IS WHERE WE START ASSIGNING EVENTS TO EVERY KEYBOARD BUTTON
+            
+            startKey.addEventListener("click", function() {
+            	startKey.style.display = 'none';  
+            	bgicon.style.display = 'block';
+			});
+
+			bgicon.addEventListener('click', function(){
+				bgicon.style.opacity = 1; 
+				bgswipe.style.display = 'block';
+				bgSwitch.style.visibility = 'visible';
+				bgSwitch.style.zIndex = 1000;
+			});
+
+			bg1.addEventListener('click', function(){
+				if (activeBg == 1){
+					console.log('yo');
+					img.style.backgroundImage = 'url(audbg1.jpg)';
+					bg1.style.opacity = 1;
+					bg2.style.opacity = .4;
+					bg3.style.opacity = .4;					
+					activeBg == 0;
+
+				}
+			})
+
+			bg2.addEventListener('click', function(){
+				if (activeBg == 1){
+					console.log('yo');
+					img.style.backgroundImage = 'url(audbg2.jpg)';
+					bg2.style.opacity = 1;
+					bg1.style.opacity = .4;
+					bg3.style.opacity = .4;
+					activeBg == 0;
+
+				}
+			})
+
+			bg3.addEventListener('click', function(){
+				if (activeBg == 1){
+					console.log('yo');
+					img.style.backgroundImage = 'url(audbg3.jpg)';
+					bg3.style.opacity = 1;
+					bg1.style.opacity = .4;
+					bg2.style.opacity = .4;
+					activeBg == 0;
+
+				}
+			})	
+
+			var infoicon = document.getElementById('infoicon');
+
+			infoicon.addEventListener('click',function(){
+				infoicon.style.opacity = 1;
+			})		
+
+    </script>
 
 
 
