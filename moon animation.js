@@ -7,7 +7,7 @@ var loadedGoogleCount = 0;
 var gFontsUpdateCacheList = [];
 var tFontsUpdateCacheList = [];
 lib.ssMetadata = [
-		{name:"moon animation_atlas_", frames: [[0,1968,580,326],[0,3608,580,326],[582,0,580,326],[0,2296,580,326],[0,2624,580,326],[582,328,580,326],[0,1640,580,326],[0,2952,580,326],[0,3280,580,326],[582,2624,580,326],[582,1312,580,326],[582,656,580,326],[582,2952,580,326],[582,3280,580,326],[582,1968,580,326],[582,984,580,326],[582,1640,580,326],[582,2296,580,326],[0,0,580,326],[0,656,580,326],[0,328,580,326],[0,984,580,326],[0,1312,580,326]]}
+		{name:"moon animation_atlas_", frames: [[0,656,580,326],[0,1968,580,326],[0,2296,580,326],[0,0,580,326],[0,328,580,326],[0,984,580,326],[0,1312,580,326],[0,1640,580,326],[0,2952,580,326],[582,3280,580,326],[582,1640,580,326],[0,2624,580,326],[582,656,580,326],[0,3280,580,326],[582,984,580,326],[0,3608,580,326],[582,0,580,326],[582,328,580,326],[582,1312,580,326],[582,1968,580,326],[582,2296,580,326],[582,2624,580,326],[582,2952,580,326]]}
 ];
 
 
@@ -349,7 +349,7 @@ lib.tfontAvailable = function(family, totalTypekitCount) {
 	this.timeline.addTween(cjs.Tween.get(this.instance_19).wait(38).to({_off:false},0).to({_off:true},2).wait(10).to({_off:false,x:204},0).to({_off:true},2).wait(10).to({_off:false,x:358},0).to({_off:true},2).wait(10).to({_off:false,x:514},0).to({_off:true},2).wait(10).to({_off:false,x:667},0).to({_off:true},2).wait(6));
 	this.timeline.addTween(cjs.Tween.get(this.instance_20).wait(40).to({_off:false},0).to({_off:true},2).wait(10).to({_off:false,x:172},0).to({_off:true},2).wait(10).to({_off:false,x:304},0).to({_off:true},2).wait(10).to({_off:false,x:468},0).to({_off:true},2).wait(10).to({_off:false,x:636},0).to({_off:true},2).wait(4));
 	this.timeline.addTween(cjs.Tween.get(this.instance_21).wait(42).to({_off:false},0).to({_off:true},2).wait(10).to({_off:false,x:196},0).to({_off:true},2).wait(10).to({_off:false,x:308},0).to({_off:true},2).wait(10).to({_off:false,x:480},0).to({_off:true},2).wait(10).to({_off:false,x:660},0).to({_off:true},2).wait(2));
-	this.timeline.addTween(cjs.Tween.get(this.instance_22).wait(44).to({_off:false},0).to({_off:true},2).wait(10).to({_off:false,x:158},0).to({_off:true},2).wait(10).to({_off:false,x:296},0).to({_off:true},2).wait(10).to({_off:false,x:472},0).to({_off:true},2).wait(10).to({_off:false},0).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this.instance_22).wait(44).to({_off:false},0).to({_off:true},2).wait(10).to({_off:false,x:158},0).to({_off:true},2).wait(10).to({_off:false,x:296},0).to({_off:true},2).wait(10).to({_off:false,x:472},0).to({_off:true},2).wait(10).to({_off:false,x:640},0).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(960,541,1920,1079.2);

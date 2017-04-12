@@ -24,19 +24,19 @@
 
 <div id='img'></div>
 
-<img src='icon_info-03.png' width='50px' id='infoicon'></img>
+    <img src='icon_info-03.png' width='50px' id='infoicon'>
 
  <div id="startTag" onClick="init();">
  	<p>Click me to start tagging</p>
  </div>
 
  <div id='startKey'>
- 	<p>Press any key to start tagging</p>
+ 	<p>Click here start tagging</p>
  </div>
 
   <div id='bgOpts'>
  	<p>
- 		<img src='icon_bg-02.png' width='70px' id='bgicon'></img>
+ 		<img src='icon_bg-02.png' width='70px' id='bgicon'>
  		<ul id='bgSwitch'>
  			<li id='bg1'>•</li> 
  			<li id='bg2'>•</li> 
@@ -50,6 +50,46 @@
  They hope you enjoy their project.</p>
  </div>
      
+<div id = "formContainer">
+<form id = "form1" name = "form 1">
+            
+        <fieldset id="field1">
+            <legend><h2>Fill Me Out:</h2></legend>
+            <h3>What Kind of Music do you like?</h3>
+           <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Hip-Hop Sounds,">Rap/Hip-Hop</p>
+            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Ambient Sounds,">Ambient Sound</p>
+            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Electronic Sounds,">Electronic</p>
+          
+            
+        
+            
+                       <h3>What Art Style do you like?</h3>
+            
+  <select onchange="myFilling(this.value)">
+     <option name="filling" value="0">Select a Style</option>
+    <option name="filling" value="Cartoon Style,">Cartoon</option>
+    <option name="filling" value="Realistic Style,">Realistic</option>
+    <option name="filling" value="Abstract Style,">Abstract</option>
+      
+  </select>
+  
+            
+
+            <h3>What Kind of Mood are you in?</h3>
+           <p> <input type="radio" name="mood" onclick="myMood(this.value)" value="and a Happy Mood">Happy</p>
+            <p> <input type="radio" name="mood" onclick="myMood(this.value)" value="and a Sad Mood">Sad</p>
+            <p> <input type="radio" name="mood" onclick="myMood(this.value)" value="and a Meh Mood">Meh</p>
+          
+                 <br>
+            <p id="Results"></p>
+            <br>
+            <div id="submitBtn">submit</div>
+            </fieldset>
+
+        </form>
+</div>
+
+
 
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="moon animation.js"></script>
@@ -65,6 +105,7 @@ var startTag = document.getElementById('startTag');
 
 startTag.addEventListener('click', function(){
 	animation_container.style.display = 'block';
+    
 })
 
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -130,7 +171,7 @@ function handleComplete(evt) {
 			lastW = iw; lastH = ih; lastS = sRatio;		
 		}
 	}
-	makeResponsive(false,'both',false,1);	
+	makeResponsive(true,'both',true,1);	
 	fnStartAnimation();
 }
 
@@ -182,14 +223,18 @@ function handleComplete(evt) {
            	,	bg3 = document.getElementById('bg3')
            	,	bgswipe = document.getElementById('bgswipe')
            	,	activeBg = 1;
-           	;
+           	
 
-
+   
+    
             //THIS IS WHERE WE START ASSIGNING EVENTS TO EVERY KEYBOARD BUTTON
             
             startKey.addEventListener("click", function() {
             	startKey.style.display = 'none';  
-            	bgicon.style.display = 'block';
+            	
+                
+                 var Uform = document.getElementById("formContainer");
+                Uform.style.display = "block";
 			});
 
 			bgicon.addEventListener('click', function(){
@@ -236,13 +281,135 @@ function handleComplete(evt) {
 			})	
 
 			var infoicon = document.getElementById('infoicon');
-
+            var infoContainer = document.getElementById('learnmore-info');
+    
+            infoClicks = 0;
+    
 			infoicon.addEventListener('click',function(){
+                infoClicks ++;  
+                
+                if (infoClicks == 1){
 				infoicon.style.opacity = 1;
-			})		
+                infoContainer.style.display = "block";
+                }
+                
+                if (infoClicks == 2){
+				infoicon.style.opacity = ".4";
+                infoContainer.style.display = "none";
+                    infoClicks = 0;
+                
+                }
+                
+			});		
 
+                 //FORM FUNCTIONALITY
+   
+    var formContainer = document.getElementById("formContainer");
+            
+    var sizeVal1 = false;
+    var sizeVal2 = false;
+    var sizeVal3 = false;
+	var sizeResult = '';
+            
+            
+    var moodVal1 = false;
+    var moodVal2 = false;
+    var moodVal3 = false;
+	var moodResult = '';
+    
+            var moodNum = 0;
+    
+        var fillingResult = ''; 
+        
+        function mySize(size) {
+   
+	sizeResult = size;
+    if(size== "Cartoon Style,"){
+        sizeVal1 = true;
+        console.log(sizeVal1);
+    }
+    if(size=="Ambient Sounds,"){
+        sizeVal2 = true;
+        console.log(sizeVal2);
+    }
+    if(size=="Electronic Sounds,"){
+        sizeVal3 = true;
+        console.log(sizeVal3);
+    } 
+  
+	upDateResults();
+    console.log(size);
+}
+        function myMood(mood) {
+   
+	moodResult = mood;
+    if(mood== "and a Happy Mood"){
+        moodVal1 = true;
+         moodNum = 1;
+        console.log(moodVal1);
+    }
+    if(mood== "and a Sad Mood"){
+        moodVal2 = true;
+        moodNum = 2;
+        console.log(moodVal2);
+    }
+    if(mood== "and a Meh Mood"){
+        moodVal3 = true;
+         moodNum = 3;
+        console.log(moodVal3);
+    } 
+  
+	upDateResults();
+    console.log(mood);
+}
+        
+        function myFilling(filling) {
+   
+	fillingResult = filling;
+	upDateResults();
+    console.log(filling);
+}
+        
+
+
+        function upDateResults(){
+	
+	var totalAmount = sizeResult + " " + fillingResult + " " + moodResult
+	document.getElementById("Results").innerHTML = "You have selected: " + totalAmount;
+	
+	
+	
+}
+            
+        //submit Button functions
+            
+           
+            
+            var submitBtn = document.getElementById("submitBtn");
+            
+            submitBtn.addEventListener("click", function(){
+                
+                if(moodNum == 1){
+                    img.style.backgroundImage = 'url(audbg3.jpg)';
+                } 
+                
+                if(moodNum == 2){
+                    img.style.backgroundImage = 'url(audbg2.jpg)';
+                } 
+                if(moodNum == 3){
+                    img.style.backgroundImage = 'url(audbg1.jpg)';
+                }
+                
+                formContainer.style.display = 'none';
+                bgicon.style.display = 'block';
+                startTag.style.display = 'block';
+            });
+            
+            
     </script>
 
 
 
 </body>
+
+</html>
