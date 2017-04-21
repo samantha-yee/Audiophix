@@ -8,14 +8,9 @@
 <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
-<body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00); width:100vw; height:100vh">
-		<canvas id="canvas" width="100vw" height="100vh" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100vw; height:100vh; position: absolute; left: 0px; top: 0px; display: block;">
-		</div>
-	</div>
 
 
+<body>
 
 	<div id='bgswipe'>
 		<i id='left' class="fa fa-angle-double-left" aria-hidden="true" size='150%'></i>
@@ -26,14 +21,22 @@
 
     <img src='icon_info-03.png' width='50px' id='infoicon'>
 
- <div id="startTag" onClick="init();">
- 	<p>Click me to start tagging</p>
+<!--
+ <div id="startTag">
+ 	<p>Press any key to start tagging</p>
  </div>
+-->
 
  <div id='startKey'>
  	<p>Click here start tagging</p>
  </div>
+    <div id="logo"><img src="Logo-animated.gif" alt="logo"/></div>
+    <div id="animation_container"></div>
+   
+    <div id="animation_container2"></div>
+    <div id="animation_container3"></div>
 
+    <div id="logo"></div>
   <div id='bgOpts'>
  	<p>
  		<img src='icon_bg-02.png' width='70px' id='bgicon'>
@@ -91,91 +94,853 @@
 
 
 
-<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="moon animation.js"></script>
-
-
-<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="moon animation.js"></script>
 <script>
 
-//START ANIMATION
-
-var startTag = document.getElementById('startTag');
-
-startTag.addEventListener('click', function(){
-	animation_container.style.display = 'block';
+//ANIMATION & SOUND LOOPS
     
-})
+    var animContainer = document.getElementById("animation_container");
+    var animContainer2 = document.getElementById("animation_container2");
+    var animContainer3 = document.getElementById("animation_container3");
+    
+    
+    
+    var animArray = [];
+        animArray[0] = "rose.gif";
+        animArray[1] = "shifty.gif";
+        animArray[2] = "sunglasses.gif";
+        animArray[3] = "hair.gif";
+        animArray[4] = "tippedhat.gif";
+        animArray[5] = "Logo-animated.gif";
+        animArray[6] = "Logo-animated.gif";
+        animArray[7] = "Logo-animated.gif";
+        animArray[8] = "Logo-animated.gif";
+        animArray[9] = "Logo-animated.gif";
+    
+            
+    var hiphopArray = [];
+        hiphopArray[0] = "drum.wav";
+        hiphopArray[1] = "drum2.wav";
+        hiphopArray[2] = "melody.wav";
+        hiphopArray[3] = "melody2.wav";
+        hiphopArray[4] = "melody3.wav";
+        hiphopArray[5] = "melody4.wav";
+        hiphopArray[6] = "melody5.wav";
+        hiphopArray[7] = "drums3.wav";
+        hiphopArray[8] = "drums4.wav";
+        hiphopArray[9] = "drums5.wav";
+        
+    
+        
+    qClicks = 0;
+    wClicks = 0;
+    eClicks = 0;
+    rClicks = 0;
+    tClicks = 0;
+    
+    yClicks = 0;
+    uClicks = 0;
+    iClicks = 0;
+    oClicks = 0;
+    pClicks = 0;
+    
+    
+    
+     document.addEventListener("keydown", function (ev) {
+        
+	if (ev.keyCode == 84) {
+        tClicks ++;
+        
+         if(eClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            eClicks = 0;
+        }
+        if(wClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            wClicks = 0;
+        }
+        if(rClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            rClicks = 0;
+        }
+        if(qClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            qClicks = 0;
+        }
+        
+        console.log("t");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[4];
+        newGif.autoPlay = true;
+        newGif.setAttribute("id","gifsize");
+       animContainer.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+        
+        newAudio.autoplay = true;
+        newAudio.loop = true;
 
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init() {
-	canvas = document.getElementById("canvas");
-	anim_container = document.getElementById("animation_container");
-	dom_overlay_container = document.getElementById("dom_overlay_container");
-	images = images||{};
-	ss = ss||{};
-	var loader = new createjs.LoadQueue(false);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.loadManifest(lib.properties.manifest);
-}
-function handleFileLoad(evt) {	
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }	
-}
-function handleComplete(evt) {
-	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-	var queue = evt.target;
-	var ssMetadata = lib.ssMetadata;
-	for(i=0; i<ssMetadata.length; i++) {
-		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-	}
-	exportRoot = new lib.moonanimation();
-	stage = new createjs.Stage(canvas);
-	stage.addChild(exportRoot);	
-	//Registers the "tick" event listener.
-	fnStartAnimation = function() {
-		createjs.Ticker.setFPS(lib.properties.fps);
-		createjs.Ticker.addEventListener("tick", stage);
-	}	    
-	//Code to support hidpi screens and responsive scaling.
-	function makeResponsive(isResp, respDim, isScale, scaleType) {		
-		var lastW, lastH, lastS=1;		
-		window.addEventListener('resize', resizeCanvas);		
-		resizeCanvas();		
-		function resizeCanvas() {			
-			var w = lib.properties.width, h = lib.properties.height;			
-			var iw = window.innerWidth, ih=window.innerHeight;			
-			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-			if(isResp) {                
-				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-					sRatio = lastS;                
-				}				
-				else if(!isScale) {					
-					if(iw<w || ih<h)						
-						sRatio = Math.min(xRatio, yRatio);				
-				}				
-				else if(scaleType==1) {					
-					sRatio = Math.min(xRatio, yRatio);				
-				}				
-				else if(scaleType==2) {					
-					sRatio = Math.max(xRatio, yRatio);				
-				}			
-			}			
-			canvas.width = w*pRatio*sRatio;			
-			canvas.height = h*pRatio*sRatio;
-			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
-			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
-			stage.scaleX = pRatio*sRatio;			
-			stage.scaleY = pRatio*sRatio;			
-			lastW = iw; lastH = ih; lastS = sRatio;		
-		}
-	}
-	makeResponsive(true,'both',true,1);	
-	fnStartAnimation();
-}
+        newAudio.load();
+        animContainer.appendChild(newAudio);
+        if(sizeNum == 1){
+            newAudio.src = hiphopArray[9];
 
-    // BG CHANGE
+ }
+	}
+        if (tClicks==2){
+            animContainer.innerHTML= "";
+            animContainer.innerHTML= "";
+            tClicks = 0;
+            }
+        
+        
+});
+    
+     document.addEventListener("keydown", function (ev) {
+        
+	if (ev.keyCode == 87) {
+        wClicks ++;
+        
+         if(eClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            eClicks = 0;
+        }
+        if(qClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            qClicks = 0;
+        }
+        if(rClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            rClicks = 0;
+        }
+        if(tClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            tClicks = 0;
+        }
+        
+        console.log("w");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[5];
+        newGif.autoPlay = true;
+        newGif.setAttribute("id","gifsize");
+       animContainer.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+        
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+
+        newAudio.load();
+        animContainer.appendChild(newAudio);
+        if(sizeNum == 1){
+            newAudio.src = hiphopArray[8];
+
+ }
+	}
+        if (wClicks==2){
+            animContainer.innerHTML= "";
+            animContainer.innerHTML= "";
+            wClicks = 0;
+            }
+        
+        
+});
+    
+    
+    document.addEventListener("keydown", function (ev) {
+        
+	if (ev.keyCode == 81) {
+        qClicks ++;
+        
+         if(eClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            eClicks = 0;
+        }
+        if(wClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            wClicks = 0;
+        }
+        if(rClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            rClicks = 0;
+        }
+        if(tClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            tClicks = 0;
+        }
+        
+        console.log("q");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[3];
+        newGif.autoPlay = true;
+        newGif.setAttribute("id","gifsize");
+       animContainer.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+        
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+
+        newAudio.load();
+        animContainer.appendChild(newAudio);
+        if(sizeNum == 1){
+            newAudio.src = hiphopArray[7];
+
+ }
+	}
+        if (qClicks==2){
+            animContainer.innerHTML= "";
+            animContainer.innerHTML= "";
+            qClicks = 0;
+            }
+        
+        
+});
+    
+    
+    document.addEventListener("keydown", function (ev) {
+        
+	if (ev.keyCode == 82) {
+        rClicks ++;
+         if(eClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            eClicks = 0;
+        }
+           if(wClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            wClicks = 0;
+        }
+        if(qClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            qClicks = 0;
+        }
+        if(tClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            tClicks = 0;
+        }
+        console.log("R");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[0];
+        newGif.autoPlay = true;
+        newGif.setAttribute("id","gifsize");
+       animContainer.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+        
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+
+        newAudio.load();
+        animContainer.appendChild(newAudio);
+        if(sizeNum == 1){
+            newAudio.src = hiphopArray[0];
+
+ }
+	}
+        if (rClicks==2){
+            animContainer.innerHTML= "";
+            animContainer.innerHTML= "";
+            rClicks = 0;
+            }
+        
+        
+});
+    
+      document.addEventListener("keydown", function (ev) {
+          
+          
+	if (ev.keyCode == 69) {
+        eClicks ++;
+         if(rClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            rClicks = 0;
+        }
+           if(wClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            wClicks = 0;
+        }
+        if(qClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            qClicks = 0;
+        }
+        if(tClicks==1){
+                animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            tClicks = 0;
+        }
+        console.log("E");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[2];
+        newGif.autoPlay = true;
+        newGif.setAttribute("id","gifsize");
+       animContainer.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+        
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+
+        newAudio.load();
+        animContainer.appendChild(newAudio);
+         
+   if(sizeNum == 1){
+       newAudio.src = hiphopArray[1];
+
+ }
+	}
+        if (eClicks==2){
+            animContainer.innerHTML="";
+            animContainer.innerHTML="";
+            eClicks = 0;
+        }
+});
+    
+   
+    
+    
+          document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 89) {
+        yClicks ++;
+         if(uClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            uClicks = 0;
+        }
+        if(iClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            iClicks = 0;
+        }
+        if(oClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            oClicks = 0;
+        }
+        if(pClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            pClicks = 0;
+        }
+        
+        console.log("y");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[1];
+        newGif.autoPlay = true; 
+        newGif.setAttribute("id","gifsize");
+       animContainer2.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+       
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+        newAudio.load();
+        animContainer2.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+             newAudio.src = hiphopArray[2];
+
+ }
+	}
+        if (yClicks==2){
+            animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            yClicks = 0;
+        }
+});
+    
+   
+     document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 85) {
+        uClicks ++;
+         if(yClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            yClicks = 0;
+        }
+        if(iClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            iClicks = 0;
+        }
+        if(oClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            oClicks = 0;
+        }
+        if(pClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            pClicks = 0;
+        }
+        
+        console.log("u");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[6];
+        newGif.autoPlay = true; 
+        newGif.setAttribute("id","gifsize");
+       animContainer2.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+       
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+        newAudio.load();
+        animContainer2.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+             newAudio.src = hiphopArray[3];
+
+ }
+	}
+        if (uClicks==2){
+            animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            uClicks = 0;
+        }
+});
+    
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 73) {
+        iClicks ++;
+         if(yClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            yClicks = 0;
+        }
+        if(uClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            uClicks = 0;
+        }
+        if(oClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            oClicks = 0;
+        }
+        if(pClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            pClicks = 0;
+        }
+        
+        console.log("i");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[7];
+        newGif.autoPlay = true; 
+        newGif.setAttribute("id","gifsize");
+       animContainer2.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+       
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+        newAudio.load();
+        animContainer2.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+             newAudio.src = hiphopArray[4];
+
+ }
+	}
+        if (iClicks==2){
+            animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            iClicks = 0;
+        }
+});
+
+    
+       document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 79) {
+        oClicks ++;
+         if(yClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            yClicks = 0;
+        }
+        if(uClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            uClicks = 0;
+        }
+        if(iClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            iClicks = 0;
+        }
+        if(pClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            pClicks = 0;
+        }
+        
+        console.log("o");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[8];
+        newGif.autoPlay = true; 
+        newGif.setAttribute("id","gifsize");
+       animContainer2.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+       
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+        newAudio.load();
+        animContainer2.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+             newAudio.src = hiphopArray[5];
+
+ }
+	}
+        if (oClicks==2){
+            animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            oClicks = 0;
+        }
+});
+    
+        document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 80) {
+        pClicks ++;
+         if(yClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            yClicks = 0;
+        }
+        if(uClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            uClicks = 0;
+        }
+        if(iClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            iClicks = 0;
+        }
+        if(oClicks==1){
+                animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            oClicks = 0;
+        }
+        
+        console.log("p");
+       var newGif = document.createElement('img');
+       newGif.src = animArray[9];
+        newGif.autoPlay = true; 
+        newGif.setAttribute("id","gifsize");
+       animContainer2.appendChild(newGif);
+        
+        var newAudio = document.createElement("audio")
+       
+        newAudio.autoplay = true;
+        newAudio.loop = true;
+        newAudio.load();
+        animContainer2.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+             newAudio.src = hiphopArray[6];
+
+ }
+	}
+        if (pClicks==2){
+            animContainer2.innerHTML="";
+            animContainer2.innerHTML="";
+            pClicks = 0;
+        }
+});
+
+    //END ANIMATION & SOUND LOOPS
+    
+    
+    //ANIMATION & SOUND SAMPLES
+    
+    var hiphopsamples = [];
+    hiphopsamples[0] = "hiphopsample1.wav";
+    hiphopsamples[1] = "hiphopsample2.wav";
+    hiphopsamples[2] = "hiphopsample3.wav";
+    hiphopsamples[3] = "hiphopsample4.wav";
+    hiphopsamples[4] = "hiphopsample5.wav";
+    hiphopsamples[5] = "hiphopsample6.wav";
+    hiphopsamples[6] = "hiphopsample7.wav";
+    hiphopsamples[7] = "hiphopsample8.wav";
+    hiphopsamples[8] = "hiphopsample9.wav";
+    hiphopsamples[9] = "hiphopsample10.wav";
+    hiphopsamples[10] = "hiphopsample11.wav";
+    hiphopsamples[11] = "hiphopsample12.wav";
+    hiphopsamples[12] = "hiphopsample13.wav";
+    hiphopsamples[13] = "hiphopsample14.wav";
+    hiphopsamples[14] = "hiphopsample15.wav";
+    hiphopsamples[15] = "hiphopsample16.wav";
+    
+    
+    
+         document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 65) {
+            console.log("a");
+        var newAudio = document.createElement("audio")
+       
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[0];
+}
+    }
+         });
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 83) {
+        var newAudio = document.createElement("audio")
+        console.log("s");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[1];
+}
+    }
+         });
+    
+     document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 68) {
+        var newAudio = document.createElement("audio")
+        console.log("d");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[2];
+}
+    }
+         });
+    
+     document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 70) {
+        var newAudio = document.createElement("audio")
+        console.log("f");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[3];
+}
+    }
+         });
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 71) {
+        var newAudio = document.createElement("audio")
+        console.log("g");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[4];
+}
+    }
+         });
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 72) {
+        var newAudio = document.createElement("audio")
+        console.log("h");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[5];
+}
+    }
+         });
+    
+      document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 74) {
+        var newAudio = document.createElement("audio")
+        console.log("j");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[6];
+}
+    }
+         });
+
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 75) {
+        var newAudio = document.createElement("audio")
+        console.log("K");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[7];
+}
+    }
+         });
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 76) {
+        var newAudio = document.createElement("audio")
+        console.log("l");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[8];
+}
+    }
+         });
+    
+     document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 90) {
+        var newAudio = document.createElement("audio")
+        console.log("z");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[9];
+}
+    }
+         });
+    
+     document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 88) {
+        var newAudio = document.createElement("audio")
+        console.log("x");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[10];
+}
+    }
+         });
+    
+     document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 67) {
+        var newAudio = document.createElement("audio")
+        console.log("c");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[11];
+}
+    }
+         });
+    
+         document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 86) {
+        var newAudio = document.createElement("audio")
+        console.log("v");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[12];
+}
+    }
+         });
+    
+         document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 66) {
+        var newAudio = document.createElement("audio")
+        console.log("b");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[13];
+}
+    }
+         });
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 78) {
+        var newAudio = document.createElement("audio")
+        console.log("n");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[14];
+}
+    }
+         });
+
+    
+    document.addEventListener("keydown", function (ev) {
+	if (ev.keyCode == 77) {
+        var newAudio = document.createElement("audio")
+        console.log("m");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[15];
+}
+    }
+         });
+    
+    //END ANIMATION & SOUND SAMPLES
+    
+    
+    
+    // BG CHANGE BUTTONS
 
         var left = document.getElementById('left');
         var right = document.getElementById('right');
@@ -222,16 +987,13 @@ function handleComplete(evt) {
            	,	bg2 = document.getElementById('bg2')
            	,	bg3 = document.getElementById('bg3')
            	,	bgswipe = document.getElementById('bgswipe')
-           	,	activeBg = 1;
+           	,	logo = document.getElementById('logo')
+            ,   activeBg = 1;
            	
-
-   
-    
-            //THIS IS WHERE WE START ASSIGNING EVENTS TO EVERY KEYBOARD BUTTON
             
             startKey.addEventListener("click", function() {
             	startKey.style.display = 'none';  
-            	
+            	logo.style.display = 'none';
                 
                  var Uform = document.getElementById("formContainer");
                 Uform.style.display = "block";
@@ -254,7 +1016,7 @@ function handleComplete(evt) {
 					activeBg == 0;
 
 				}
-			})
+			});
 
 			bg2.addEventListener('click', function(){
 				if (activeBg == 1){
@@ -266,7 +1028,7 @@ function handleComplete(evt) {
 					activeBg == 0;
 
 				}
-			})
+			});
 
 			bg3.addEventListener('click', function(){
 				if (activeBg == 1){
@@ -278,7 +1040,7 @@ function handleComplete(evt) {
 					activeBg == 0;
 
 				}
-			})	
+			});
 
 			var infoicon = document.getElementById('infoicon');
             var infoContainer = document.getElementById('learnmore-info');
@@ -306,35 +1068,32 @@ function handleComplete(evt) {
    
     var formContainer = document.getElementById("formContainer");
             
-    var sizeVal1 = false;
-    var sizeVal2 = false;
-    var sizeVal3 = false;
+   
 	var sizeResult = '';
-            
-            
-    var moodVal1 = false;
-    var moodVal2 = false;
-    var moodVal3 = false;
 	var moodResult = '';
+    var fillingResult = ''; 
     
-            var moodNum = 0;
     
-        var fillingResult = ''; 
+    var sizeNum = 0;
+    var moodNum = 0;
+    var fillingNum = 0;
+            
+        
         
         function mySize(size) {
    
 	sizeResult = size;
-    if(size== "Cartoon Style,"){
-        sizeVal1 = true;
-        console.log(sizeVal1);
+    if(size== "Hip-Hop Sounds,"){
+        sizeNum = 1;
+        console.log(sizeNum);
     }
     if(size=="Ambient Sounds,"){
-        sizeVal2 = true;
-        console.log(sizeVal2);
+        sizeNum = 2;
+        console.log(sizeNum);
     }
     if(size=="Electronic Sounds,"){
-        sizeVal3 = true;
-        console.log(sizeVal3);
+        sizeNum = 3;
+        console.log(sizeNum);
     } 
   
 	upDateResults();
@@ -344,19 +1103,19 @@ function handleComplete(evt) {
    
 	moodResult = mood;
     if(mood== "and a Happy Mood"){
-        moodVal1 = true;
-         moodNum = 1;
-        console.log(moodVal1);
+        moodNum = 1;
+        console.log(moodNum);
     }
+            
     if(mood== "and a Sad Mood"){
-        moodVal2 = true;
         moodNum = 2;
-        console.log(moodVal2);
+        console.log(moodNum);
     }
+            
     if(mood== "and a Meh Mood"){
-        moodVal3 = true;
+
          moodNum = 3;
-        console.log(moodVal3);
+        console.log(moodNum);
     } 
   
 	upDateResults();
@@ -383,7 +1142,7 @@ function handleComplete(evt) {
             
         //submit Button functions
             
-           
+ 
             
             var submitBtn = document.getElementById("submitBtn");
             
@@ -400,9 +1159,27 @@ function handleComplete(evt) {
                     img.style.backgroundImage = 'url(audbg1.jpg)';
                 }
                 
+                if(sizeNum == 1){
+                    animContainer.style.display = 'block';
+                    animContainer2.style.display = 'block';
+                    animContainer3.style.display = 'block';
+                }
+                
+                if(sizeNum == 2){
+                    
+                }
+                
+                if(sizeNum == 3){
+                    
+                }
+                
                 formContainer.style.display = 'none';
                 bgicon.style.display = 'block';
-                startTag.style.display = 'block';
+//                startTag.style.display = 'block';
+                logo.setAttribute("id","logo2");
+                logo.style.display = 'block';
+                
+              
             });
             
             
@@ -413,3 +1190,4 @@ function handleComplete(evt) {
 </body>
 
 </html>
+

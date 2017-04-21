@@ -14,13 +14,67 @@
 
     }
 
- /* START ANIMATION */
+#logo img{
+      width: 408px;
+    height: auto;
+    margin: auto;
+    position: absolute; 
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
 
-	#animation_container {
-         display: none;
-         width: 100vw;
-         height: 100vh;
-	}
+#logo2 img{
+      width: 102px;
+    height: auto;
+    margin: auto;
+    position: absolute; 
+    right: 0;
+    top: 0;
+}
+ /* ANIMATION */
+
+	 #animation_container {
+	position:absolute;
+	display: none;  
+	left:200px;
+	top:0;
+    margin: auto;
+    width: auto;
+    height: auto;
+      background-color: aqua;    
+  }
+
+
+
+#animation_container2 {
+	position:absolute;
+    right:200px;
+	top:0;
+    margin: auto;
+    width: auto;
+    height: auto;
+    display: none;
+     background-color: aqua;
+  }
+
+#animation_container3 {
+	position:absolute;
+	left:0;
+    right:0;
+    bottom:100px;
+    margin: auto;
+    width: 100vw;
+    height: auto;
+    display: none;
+    background-color: aqua;
+  }
+
+#gifsize{
+    height: auto;
+    width: 480px;
+}
 
 /* FONTS */
 
@@ -134,7 +188,12 @@ li:hover {
      font-size: 20pt;
      color: white;
      cursor: pointer;
-     text-align: center
+     text-align: center;
+      position: absolute;
+        
+      left:0;
+      right:0;
+      bottom: 200px;
     }
 
         
