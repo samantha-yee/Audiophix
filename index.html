@@ -86,7 +86,7 @@
             <legend><h2>Fill Me Out:</h2></legend>
             <h3>What Kind of Music do you like?</h3>
            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Hip-Hop Sounds,">Rap/Hip-Hop</p>
-            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Ambient Sounds,">Ambient Sound</p>
+            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Alternative Sounds,">Alternative</p>
             <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Electronic Sounds,">Electronic</p>
     
      <h3>What Kind of Mood are you in?</h3>
@@ -139,6 +139,31 @@
         hiphopArray[7] = "drums3.wav";
         hiphopArray[8] = "drums4.wav";
         hiphopArray[9] = "drums5.wav";
+
+    var altloops = [];
+        altloops[0] = 'loops2/loop2-1.wav';
+        altloops[1] = 'loops2/loop2-2.wav';
+        altloops[2] = 'loops2/loop2-3.wav';
+        altloops[3] = 'loops2/loop2-4.wav';
+        altloops[4] = 'loops2/loop2-5.wav';
+        altloops[5] = 'loops2/loop2-6.wav';
+        altloops[6] = 'loops2/loop2-7.wav';
+        altloops[7] = 'loops2/loop2-8.wav';
+        altloops[8] = 'loops2/loop2-9.wav';
+        altloops[9] = 'loops2/loop2-10.wav';
+
+
+    var chillloops = [];
+        chillloops[0] = 'chillloops/chilldrums.wav';
+        chillloops[1] = 'chillloops/chilldrums2.wav';
+        chillloops[2] = 'chillloops/chilldrums3.wav';
+        chillloops[3] = 'chillloops/chilldrums4.wav';
+        chillloops[4] = 'chillloops/chilldrums5.wav';
+        chillloops[5] = 'chillloops/chillmelody.wav';
+        chillloops[6] = 'chillloops/chillmelody2.wav';
+        chillloops[7] = 'chillloops/chillmelody3.wav';
+        chillloops[8] = 'chillloops/chillmelody4.wav';
+        chillloops[9] = 'chillloops/chillmelody5.wav';
         
     
         
@@ -154,7 +179,8 @@
     oClicks = 0;
     pClicks = 0;
     
-    
+
+  
     
      document.addEventListener("keydown", function (ev) {
         
@@ -198,9 +224,15 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[9];
-
  }
-	}
+        if(sizeNum == 2){
+            newAudio.src =  altloops[0];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[0];
+}
+    }
+
         if (tClicks==2){
             animContainer.innerHTML= "";
             animContainer.innerHTML= "";
@@ -252,8 +284,14 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[8];
-
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[1];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[1];
+}
+
 	}
         if (wClicks==2){
             animContainer.innerHTML= "";
@@ -307,8 +345,14 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[7];
-
  }
+         if(sizeNum == 2){
+            newAudio.src =  altloops[3];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[2];
+}
+
 	}
         if (qClicks==2){
             animContainer.innerHTML= "";
@@ -360,8 +404,14 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[0];
-
  }
+         if(sizeNum == 2){
+            newAudio.src =  altloops[4];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[3];
+}
+
 	}
         if (rClicks==2){
             animContainer.innerHTML= "";
@@ -416,6 +466,13 @@
        newAudio.src = hiphopArray[1];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[5];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[4];
+}
+
 	}
         if (eClicks==2){
             animContainer.innerHTML="";
@@ -469,6 +526,13 @@
              newAudio.src = hiphopArray[2];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[6];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[5];
+}
+
 	}
         if (yClicks==2){
             animContainer2.innerHTML="";
@@ -520,6 +584,13 @@
              newAudio.src = hiphopArray[3];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[7];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[6];
+}
+
 	}
         if (uClicks==2){
             animContainer2.innerHTML="";
@@ -571,6 +642,12 @@
              newAudio.src = hiphopArray[4];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[8];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[7];
+}
 	}
         if (iClicks==2){
             animContainer2.innerHTML="";
@@ -622,6 +699,13 @@
              newAudio.src = hiphopArray[5];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[9];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[8];
+}
+
 	}
         if (oClicks==2){
             animContainer2.innerHTML="";
@@ -672,6 +756,12 @@
              newAudio.src = hiphopArray[6];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[2];
+}        if(sizeNum == 3){
+            newAudio.src =  chillloops[0];
+}
+
 	}
         if (pClicks==2){
             animContainer2.innerHTML="";
@@ -681,9 +771,6 @@
 });
 
     //END ANIMATION & SOUND LOOPS
-    var altloops = [];
-
-    altloops[0] = '/loops2/'
     
     
     //ANIMATION & SOUND SAMPLES
@@ -705,6 +792,26 @@
     hiphopsamples[13] = "hiphopsample14.wav";
     hiphopsamples[14] = "hiphopsample15.wav";
     hiphopsamples[15] = "hiphopsample16.wav";
+
+    var altsamples = [];
+    altsamples [0] = 'samples2/altsample2-1.wav';
+    altsamples [1] = 'samples2/altsample2-2.wav';
+    altsamples [2] = 'samples2/altsample2-3.wav';
+    altsamples [3] = 'samples2/altsample2-4.wav';
+    altsamples [4] = 'samples2/altsample2-5.wav';
+    altsamples [5] = 'samples2/altsample2-6.wav';
+    altsamples [6] = 'samples2/altsample2-7.wav';
+    altsamples [7] = 'samples2/altsample2-8.wav';
+    altsamples [8] = 'samples2/altsample2-9.wav';
+    altsamples [9] = 'samples2/altsample2-10.wav';
+    altsamples [10] = 'samples2/altsample2-11.wav';
+    altsamples [11] = 'samples2/altsample2-12.wav';
+    altsamples [12] = 'samples2/altsample2-13.wav';
+    altsamples [13] = 'samples2/altsample2-14.wav';
+    altsamples [14] = 'samples2/altsample2-15.wav';
+    altsamples [15] = 'samples2/altsample2-16.wav';
+
+
     
     
     
@@ -720,23 +827,57 @@
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[0];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[15];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
     
-    document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 83) {
+         document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 66) {
         var newAudio = document.createElement("audio")
-        console.log("s");
+        console.log("b");
         
         newAudio.autoplay = true;
         newAudio.load();
         animContainer3.appendChild(newAudio);
         
         if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[1];
+            newAudio.src =  hiphopsamples[13];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[0];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
+
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 67) {
+        var newAudio = document.createElement("audio")
+        console.log("c");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[11];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[1];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
+    }
+         });
+
     
      document.addEventListener("keydown", function (ev) {
 	if (ev.keyCode == 68) {
@@ -750,11 +891,19 @@
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[2];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[2];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
     
+
+
      document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 70) {
+    if (ev.keyCode == 70) {
         var newAudio = document.createElement("audio")
         console.log("f");
         
@@ -764,12 +913,18 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[3];
+}       
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[3];
 }
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
-    
-    document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 71) {
+
+        document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 71) {
         var newAudio = document.createElement("audio")
         console.log("g");
         
@@ -779,7 +934,13 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[4];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[4];
 }
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
     
@@ -794,7 +955,13 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[5];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[5];
 }
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
     
@@ -809,7 +976,13 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[6];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[6];
 }
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
 
@@ -825,7 +998,13 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[7];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[7];
 }
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
     
@@ -840,103 +1019,18 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[8];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[8];
 }
-    }
-         });
-    
-     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 90) {
-        var newAudio = document.createElement("audio")
-        console.log("z");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[9];
-}
-    }
-         });
-    
-     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 88) {
-        var newAudio = document.createElement("audio")
-        console.log("x");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[10];
-}
-    }
-         });
-    
-     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 67) {
-        var newAudio = document.createElement("audio")
-        console.log("c");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[11];
-}
-    }
-         });
-    
-         document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 86) {
-        var newAudio = document.createElement("audio")
-        console.log("v");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[12];
-}
-    }
-         });
-    
-         document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 66) {
-        var newAudio = document.createElement("audio")
-        console.log("b");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[13];
-}
-    }
-         });
-    
-    document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 78) {
-        var newAudio = document.createElement("audio")
-        console.log("n");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[14];
-}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
 
-    
     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 77) {
+    if (ev.keyCode == 77) {
         var newAudio = document.createElement("audio")
         console.log("m");
         
@@ -947,8 +1041,125 @@
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[15];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[9];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
     }
          });
+    
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 78) {
+        var newAudio = document.createElement("audio")
+        console.log("n");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[14];
+}
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[10];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
+    }
+         });
+
+
+    
+    
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 83) {
+        var newAudio = document.createElement("audio")
+        console.log("s");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[1];
+}
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[11];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
+    }
+         });
+
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 86) {
+        var newAudio = document.createElement("audio")
+        console.log("v");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[12];
+}   
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[12];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
+    }
+         });
+
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 88) {
+        var newAudio = document.createElement("audio")
+        console.log("x");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[10];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[13];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
+    }
+         });
+
+     document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 90) {
+        var newAudio = document.createElement("audio")
+        console.log("z");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[9];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[14];
+}
+//         if(sizeNum == 3){
+//             newAudio.src =  //[0];
+// }
+    }
+         });
+
+    
+
     
     //END ANIMATION & SOUND SAMPLES
     
@@ -969,12 +1180,16 @@
             console.log(num + ' -');
             if (num == 1) {
                 img.style.backgroundImage = 'url(audbg1.jpg)';
+                sizeNum = 1;
             } else if (num == 0) {
                 img.style.backgroundImage = 'url(audbg3.jpg)';
+                sizeNum = 3;
             } else if (num == -1) {
                 img.style.backgroundImage = 'url(audbg2.jpg)';
+                sizeNum = 2;
             } else if (num == -2) {
                 img.style.backgroundImage = 'url(audbg1.jpg)';
+                sizeNum = 1;
                 num = 1;
             }
         })
@@ -1024,6 +1239,7 @@
 				if (activeBg == 1){
 					console.log('yo');
 					img.style.backgroundImage = 'url(audbg1.jpg)';
+                    sizeNum = 1;
 					bg1.style.opacity = 1;
 					bg2.style.opacity = .4;
 					bg3.style.opacity = .4;					
@@ -1036,6 +1252,7 @@
 				if (activeBg == 1){
 					console.log('yo');
 					img.style.backgroundImage = 'url(audbg2.jpg)';
+                    sizeNum = 2;
 					bg2.style.opacity = 1;
 					bg1.style.opacity = .4;
 					bg3.style.opacity = .4;
@@ -1048,6 +1265,7 @@
 				if (activeBg == 1){
 					console.log('yo');
 					img.style.backgroundImage = 'url(audbg3.jpg)';
+                    sizeNum = 3;
 					bg3.style.opacity = 1;
 					bg1.style.opacity = .4;
 					bg2.style.opacity = .4;
@@ -1098,7 +1316,7 @@
         sizeNum = 1;
         console.log(sizeNum);
     }
-    if(size=="Ambient Sounds,"){
+    if(size=="Alternative Sounds,"){
         sizeNum = 2;
         console.log(sizeNum);
     }
@@ -1172,10 +1390,16 @@
                 }
                 
                 if(sizeNum == 2){
+                    animContainer.style.display = 'block';
+                    animContainer2.style.display = 'block';
+                    animContainer3.style.display = 'block';
                     
                 }
                 
                 if(sizeNum == 3){
+                    animContainer.style.display = 'block';
+                    animContainer2.style.display = 'block';
+                    animContainer3.style.display = 'block';
                     
                 }
                 
@@ -1293,13 +1517,6 @@
          });
 
         document.addEventListener("keydown", function (ev) {
-    if (ev.keyCode == 73) {
-        console.log('i');
-        keyI.style.display = 'block';
-    }
-         });
-
-        document.addEventListener("keydown", function (ev) {
     if (ev.keyCode == 74) {
         console.log('j');
         keyJ.style.display = 'block';
@@ -1348,7 +1565,7 @@
          });
 
         document.addEventListener("keydown", function (ev) {
-    if (ev.keyCode == 88) {
+    if (ev.keyCode == 88 ) {
         console.log('x');
         keyX.style.display = 'block';
     }
