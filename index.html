@@ -86,7 +86,7 @@
             <legend><h2>Fill Me Out:</h2></legend>
             <h3>What Kind of Music do you like?</h3>
            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Hip-Hop Sounds,">Rap/Hip-Hop</p>
-            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Ambient Sounds,">Ambient Sound</p>
+            <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Alternative Sounds,">Alternative</p>
             <p> <input type="radio" name="size" onclick="mySize(this.value)" value="Electronic Sounds,">Electronic</p>
     
      <h3>What Kind of Mood are you in?</h3>
@@ -129,16 +129,41 @@
     
             
     var hiphopArray = [];
-        hiphopArray[0] = "drum.wav";
-        hiphopArray[1] = "drum2.wav";
-        hiphopArray[2] = "melody.wav";
-        hiphopArray[3] = "melody2.wav";
-        hiphopArray[4] = "melody3.wav";
-        hiphopArray[5] = "melody4.wav";
-        hiphopArray[6] = "melody5.wav";
-        hiphopArray[7] = "drums3.wav";
-        hiphopArray[8] = "drums4.wav";
-        hiphopArray[9] = "drums5.wav";
+        hiphopArray[0] = "loops1/drum.wav";
+        hiphopArray[1] = "loops1/drum2.wav";
+        hiphopArray[2] = "loops1/melody.wav";
+        hiphopArray[3] = "loops1/melody2.wav";
+        hiphopArray[4] = "loops1/melody3.wav";
+        hiphopArray[5] = "loops1/melody4.wav";
+        hiphopArray[6] = "loops1/melody5.wav";
+        hiphopArray[7] = "loops1/drums3.wav";
+        hiphopArray[8] = "loops1/drums4.wav";
+        hiphopArray[9] = "loops1/drums5.wav";
+
+    var altloops = [];
+        altloops[0] = 'loops2/loop2-1.wav';
+        altloops[1] = 'loops2/loop2-2.wav';
+        altloops[2] = 'loops2/loop2-3.wav';
+        altloops[3] = 'loops2/loop2-4.wav';
+        altloops[4] = 'loops2/loop2-5.wav';
+        altloops[5] = 'loops2/loop2-6.wav';
+        altloops[6] = 'loops2/loop2-7.wav';
+        altloops[7] = 'loops2/loop2-8.wav';
+        altloops[8] = 'loops2/loop2-9.wav';
+        altloops[9] = 'loops2/loop2-10.wav';
+
+
+    var chillloops = [];
+        chillloops[0] = 'loops3/chilldrums.wav';
+        chillloops[1] = 'loops3/chilldrums2.wav';
+        chillloops[2] = 'loops3/chilldrums3.wav';
+        chillloops[3] = 'loops3/chilldrums4.wav';
+        chillloops[4] = 'loops3/chilldrums5.wav';
+        chillloops[5] = 'loops3/chillmelody.wav';
+        chillloops[6] = 'loops3/chillmelody2.wav';
+        chillloops[7] = 'loops3/chillmelody3.wav';
+        chillloops[8] = 'loops3/chillmelody4.wav';
+        chillloops[9] = 'loops3/chillmelody5.wav';
         
     
         
@@ -154,7 +179,8 @@
     oClicks = 0;
     pClicks = 0;
     
-    
+
+  
     
      document.addEventListener("keydown", function (ev) {
         
@@ -198,9 +224,15 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[9];
-
  }
-	}
+        if(sizeNum == 2){
+            newAudio.src =  altloops[0];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[0];
+}
+    }
+
         if (tClicks==2){
             animContainer.innerHTML= "";
             animContainer.innerHTML= "";
@@ -252,8 +284,14 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[8];
-
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[1];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[1];
+}
+
 	}
         if (wClicks==2){
             animContainer.innerHTML= "";
@@ -307,8 +345,14 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[7];
-
  }
+         if(sizeNum == 2){
+            newAudio.src =  altloops[3];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[2];
+}
+
 	}
         if (qClicks==2){
             animContainer.innerHTML= "";
@@ -360,8 +404,14 @@
         animContainer.appendChild(newAudio);
         if(sizeNum == 1){
             newAudio.src = hiphopArray[0];
-
  }
+         if(sizeNum == 2){
+            newAudio.src =  altloops[4];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[3];
+}
+
 	}
         if (rClicks==2){
             animContainer.innerHTML= "";
@@ -416,6 +466,13 @@
        newAudio.src = hiphopArray[1];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[5];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[4];
+}
+
 	}
         if (eClicks==2){
             animContainer.innerHTML="";
@@ -469,6 +526,13 @@
              newAudio.src = hiphopArray[2];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[6];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[5];
+}
+
 	}
         if (yClicks==2){
             animContainer2.innerHTML="";
@@ -520,6 +584,13 @@
              newAudio.src = hiphopArray[3];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[7];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[6];
+}
+
 	}
         if (uClicks==2){
             animContainer2.innerHTML="";
@@ -571,6 +642,12 @@
              newAudio.src = hiphopArray[4];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[8];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[7];
+}
 	}
         if (iClicks==2){
             animContainer2.innerHTML="";
@@ -622,6 +699,13 @@
              newAudio.src = hiphopArray[5];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[9];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillloops[8];
+}
+
 	}
         if (oClicks==2){
             animContainer2.innerHTML="";
@@ -672,6 +756,12 @@
              newAudio.src = hiphopArray[6];
 
  }
+        if(sizeNum == 2){
+            newAudio.src =  altloops[2];
+}        if(sizeNum == 3){
+            newAudio.src =  chillloops[9];
+}
+
 	}
         if (pClicks==2){
             animContainer2.innerHTML="";
@@ -681,30 +771,63 @@
 });
 
     //END ANIMATION & SOUND LOOPS
-    var altloops = [];
-
-    altloops[0] = '/loops2/'
     
     
     //ANIMATION & SOUND SAMPLES
     
     var hiphopsamples = [];
-    hiphopsamples[0] = "hiphopsample1.wav";
-    hiphopsamples[1] = "hiphopsample2.wav";
-    hiphopsamples[2] = "hiphopsample3.wav";
-    hiphopsamples[3] = "hiphopsample4.wav";
-    hiphopsamples[4] = "hiphopsample5.wav";
-    hiphopsamples[5] = "hiphopsample6.wav";
-    hiphopsamples[6] = "hiphopsample7.wav";
-    hiphopsamples[7] = "hiphopsample8.wav";
-    hiphopsamples[8] = "hiphopsample9.wav";
-    hiphopsamples[9] = "hiphopsample10.wav";
-    hiphopsamples[10] = "hiphopsample11.wav";
-    hiphopsamples[11] = "hiphopsample12.wav";
-    hiphopsamples[12] = "hiphopsample13.wav";
-    hiphopsamples[13] = "hiphopsample14.wav";
-    hiphopsamples[14] = "hiphopsample15.wav";
-    hiphopsamples[15] = "hiphopsample16.wav";
+    hiphopsamples[0] = "samples1/hiphopsample1.wav";
+    hiphopsamples[1] = "samples1/hiphopsample2.wav";
+    hiphopsamples[2] = "samples1/hiphopsample3.wav";
+    hiphopsamples[3] = "samples1/hiphopsample4.wav";
+    hiphopsamples[4] = "samples1/hiphopsample5.wav";
+    hiphopsamples[5] = "samples1/hiphopsample6.wav";
+    hiphopsamples[6] = "samples1/hiphopsample7.wav";
+    hiphopsamples[7] = "samples1/hiphopsample8.wav";
+    hiphopsamples[8] = "samples1/hiphopsample9.wav";
+    hiphopsamples[9] = "samples1/hiphopsample10.wav";
+    hiphopsamples[10] = "samples1/hiphopsample11.wav";
+    hiphopsamples[11] = "samples1/hiphopsample12.wav";
+    hiphopsamples[12] = "samples1/hiphopsample13.wav";
+    hiphopsamples[13] = "samples1/hiphopsample14.wav";
+    hiphopsamples[14] = "samples1/hiphopsample15.wav";
+    hiphopsamples[15] = "samples1/hiphopsample16.wav";
+
+    var altsamples = [];
+    altsamples [0] = 'samples2/altsample2-1.wav';
+    altsamples [1] = 'samples2/altsample2-2.wav';
+    altsamples [2] = 'samples2/altsample2-3.wav';
+    altsamples [3] = 'samples2/altsample2-4.wav';
+    altsamples [4] = 'samples2/altsample2-5.wav';
+    altsamples [5] = 'samples2/altsample2-6.wav';
+    altsamples [6] = 'samples2/altsample2-7.wav';
+    altsamples [7] = 'samples2/altsample2-8.wav';
+    altsamples [8] = 'samples2/altsample2-9.wav';
+    altsamples [9] = 'samples2/altsample2-10.wav';
+    altsamples [10] = 'samples2/altsample2-11.wav';
+    altsamples [11] = 'samples2/altsample2-12.wav';
+    altsamples [12] = 'samples2/altsample2-13.wav';
+    altsamples [13] = 'samples2/altsample2-14.wav';
+    altsamples [14] = 'samples2/altsample2-15.wav';
+    altsamples [15] = 'samples2/altsample2-16.wav';
+
+    var chillsamples = [];
+    chillsamples [0] = 'samples3/chillsample1.wav'
+    chillsamples [1] = 'samples3/chillsample2.wav'
+    chillsamples [2] = 'samples3/chillsample3.wav'
+    chillsamples [3] = 'samples3/chillsample4.wav'
+    chillsamples [4] = 'samples3/chillsample5.wav'
+    chillsamples [5] = 'samples3/chillsample6.wav'
+    chillsamples [6] = 'samples3/chillsample7.wav'
+    chillsamples [7] = 'samples3/chillsample8.wav'
+    chillsamples [8] = 'samples3/chillsample9.wav'
+    chillsamples [9] = 'samples3/chillsample10.wav'
+    chillsamples [10] = 'samples3/chillsample11.wav'
+    chillsamples [11] = 'samples3/chillsample12.wav'
+    chillsamples [12] = 'samples3/chillsample13.wav'
+    chillsamples [13] = 'samples3/chillsample14.wav'
+    chillsamples [14] = 'samples3/chillsample15.wav'
+    chillsamples [15] = 'samples3/chillsample16.wav'
     
     
     
@@ -720,23 +843,57 @@
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[0];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[15];
+}
+        if(sizeNum == 3){
+            newAudio.src =  chillsamples[0];
+}
     }
          });
     
-    document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 83) {
+         document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 66) {
         var newAudio = document.createElement("audio")
-        console.log("s");
+        console.log("b");
         
         newAudio.autoplay = true;
         newAudio.load();
         animContainer3.appendChild(newAudio);
         
         if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[1];
+            newAudio.src =  hiphopsamples[13];
+}
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[0];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[1];
 }
     }
          });
+
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 67) {
+        var newAudio = document.createElement("audio")
+        console.log("c");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[11];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[1];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[2];
+}
+    }
+         });
+
     
      document.addEventListener("keydown", function (ev) {
 	if (ev.keyCode == 68) {
@@ -750,11 +907,19 @@
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[2];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[2];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[3];
+}
     }
          });
     
+
+
      document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 70) {
+    if (ev.keyCode == 70) {
         var newAudio = document.createElement("audio")
         console.log("f");
         
@@ -764,12 +929,18 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[3];
+}       
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[3];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[4];
 }
     }
          });
-    
-    document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 71) {
+
+        document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 71) {
         var newAudio = document.createElement("audio")
         console.log("g");
         
@@ -779,6 +950,12 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[4];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[4];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[5];
 }
     }
          });
@@ -794,6 +971,12 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[5];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[5];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[6];
 }
     }
          });
@@ -809,6 +992,12 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[6];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[6];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[7];
 }
     }
          });
@@ -825,6 +1014,12 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[7];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[7];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[8];
 }
     }
          });
@@ -840,103 +1035,18 @@
         
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[8];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[8];
 }
-    }
-         });
-    
-     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 90) {
-        var newAudio = document.createElement("audio")
-        console.log("z");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[9];
-}
-    }
-         });
-    
-     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 88) {
-        var newAudio = document.createElement("audio")
-        console.log("x");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[10];
-}
-    }
-         });
-    
-     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 67) {
-        var newAudio = document.createElement("audio")
-        console.log("c");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[11];
-}
-    }
-         });
-    
-         document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 86) {
-        var newAudio = document.createElement("audio")
-        console.log("v");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[12];
-}
-    }
-         });
-    
-         document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 66) {
-        var newAudio = document.createElement("audio")
-        console.log("b");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[13];
-}
-    }
-         });
-    
-    document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 78) {
-        var newAudio = document.createElement("audio")
-        console.log("n");
-        
-        newAudio.autoplay = true;
-        newAudio.load();
-        animContainer3.appendChild(newAudio);
-        
-        if(sizeNum == 1){
-            newAudio.src =  hiphopsamples[14];
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[9];
 }
     }
          });
 
-    
     document.addEventListener("keydown", function (ev) {
-	if (ev.keyCode == 77) {
+    if (ev.keyCode == 77) {
         var newAudio = document.createElement("audio")
         console.log("m");
         
@@ -947,8 +1057,125 @@
         if(sizeNum == 1){
             newAudio.src =  hiphopsamples[15];
 }
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[9];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[10];
+}
     }
          });
+    
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 78) {
+        var newAudio = document.createElement("audio")
+        console.log("n");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[14];
+}
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[10];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[11];
+}
+    }
+         });
+
+
+    
+    
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 83) {
+        var newAudio = document.createElement("audio")
+        console.log("s");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[1];
+}
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[11];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[12];
+}
+    }
+         });
+
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 86) {
+        var newAudio = document.createElement("audio")
+        console.log("v");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[12];
+}   
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[12];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[13];
+}
+    }
+         });
+
+    document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 88) {
+        var newAudio = document.createElement("audio")
+        console.log("x");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[10];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[13];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[14];
+}
+    }
+         });
+
+     document.addEventListener("keydown", function (ev) {
+    if (ev.keyCode == 90) {
+        var newAudio = document.createElement("audio")
+        console.log("z");
+        
+        newAudio.autoplay = true;
+        newAudio.load();
+        animContainer3.appendChild(newAudio);
+        
+        if(sizeNum == 1){
+            newAudio.src =  hiphopsamples[9];
+}        
+        if(sizeNum == 2){
+            newAudio.src =  altsamples[14];
+}
+   if(sizeNum == 3){
+            newAudio.src =  chillsamples[15];
+}
+    }
+         });
+
+    
+
     
     //END ANIMATION & SOUND SAMPLES
     
@@ -969,12 +1196,16 @@
             console.log(num + ' -');
             if (num == 1) {
                 img.style.backgroundImage = 'url(audbg1.jpg)';
+                sizeNum = 1;
             } else if (num == 0) {
                 img.style.backgroundImage = 'url(audbg3.jpg)';
+                sizeNum = 3;
             } else if (num == -1) {
                 img.style.backgroundImage = 'url(audbg2.jpg)';
+                sizeNum = 2;
             } else if (num == -2) {
                 img.style.backgroundImage = 'url(audbg1.jpg)';
+                sizeNum = 1;
                 num = 1;
             }
         })
@@ -1002,7 +1233,8 @@
            	,	bg3 = document.getElementById('bg3')
            	,	bgswipe = document.getElementById('bgswipe')
            	,	logo = document.getElementById('logo')
-            ,   activeBg = 1;
+            ,   activeBg = 1
+            ,   bgiconClicks = 0;
            	
             
             startKey.addEventListener("click", function() {
@@ -1014,20 +1246,42 @@
 			});
 
 			bgicon.addEventListener('click', function(){
+                bgiconClicks ++;
 				bgicon.style.opacity = 1; 
 				bgswipe.style.display = 'block';
 				bgSwitch.style.visibility = 'visible';
 				bgSwitch.style.zIndex = 1000;
+                animContainer.innerHTML ="";
+                animContainer2.innerHTML ="";
+                
+
+                animContainer.style.display = 'none';
+                animContainer2.style.display = 'none';
+                animContainer3.style.display = 'none';
+
+                if(bgiconClicks == 2){
+                    bgswipe.style.display = 'none';
+                    bgicon.style.opacity = .3;
+                    bgiconClicks = 0;
+                    bgSwitch.style.visibility = 'hidden';
+                    animContainer.style.display = 'block';
+                animContainer2.style.display = 'block';
+                animContainer3.style.display = 'block';
+                }
 			});
+
+
 
 			bg1.addEventListener('click', function(){
 				if (activeBg == 1){
 					console.log('yo');
 					img.style.backgroundImage = 'url(audbg1.jpg)';
+                    sizeNum = 1;
 					bg1.style.opacity = 1;
 					bg2.style.opacity = .4;
 					bg3.style.opacity = .4;					
 					activeBg == 0;
+
 
 				}
 			});
@@ -1036,6 +1290,7 @@
 				if (activeBg == 1){
 					console.log('yo');
 					img.style.backgroundImage = 'url(audbg2.jpg)';
+                    sizeNum = 2;
 					bg2.style.opacity = 1;
 					bg1.style.opacity = .4;
 					bg3.style.opacity = .4;
@@ -1048,6 +1303,7 @@
 				if (activeBg == 1){
 					console.log('yo');
 					img.style.backgroundImage = 'url(audbg3.jpg)';
+                    sizeNum = 3;
 					bg3.style.opacity = 1;
 					bg1.style.opacity = .4;
 					bg2.style.opacity = .4;
@@ -1098,7 +1354,7 @@
         sizeNum = 1;
         console.log(sizeNum);
     }
-    if(size=="Ambient Sounds,"){
+    if(size=="Alternative Sounds,"){
         sizeNum = 2;
         console.log(sizeNum);
     }
@@ -1154,36 +1410,61 @@
             
             submitBtn.addEventListener("click", function(){
                 
-                if(moodNum == 1){
+
+
+                if(moodNum == 1 && sizeNum == 1 || sizeNum == 2 || sizeNum == 3){
                     img.style.backgroundImage = 'url(audbg3.jpg)';
-                } 
-                
-                if(moodNum == 2){
-                    img.style.backgroundImage = 'url(audbg2.jpg)';
-                } 
-                if(moodNum == 3){
-                    img.style.backgroundImage = 'url(audbg1.jpg)';
-                }
-                
-                if(sizeNum == 1){
-                    animContainer.style.display = 'block';
-                    animContainer2.style.display = 'block';
-                    animContainer3.style.display = 'block';
-                }
-                
-                if(sizeNum == 2){
-                    
-                }
-                
-                if(sizeNum == 3){
-                    
-                }
-                
-                formContainer.style.display = 'none';
+                    formContainer.style.display = 'none';
                 bgicon.style.display = 'block';
 //                startTag.style.display = 'block';
                 logo.setAttribute("id","logo2");
                 logo.style.display = 'block';
+                 animContainer.style.display = 'block';
+                    animContainer2.style.display = 'block';
+                    animContainer3.style.display = 'block';
+            
+                } 
+                
+                 if(moodNum == 2 && sizeNum == 1 || sizeNum == 2 || sizeNum == 3){
+                    img.style.backgroundImage = 'url(audbg2.jpg)';
+                    formContainer.style.display = 'none';
+                bgicon.style.display = 'block';
+//                startTag.style.display = 'block';
+                logo.setAttribute("id","logo2");
+                logo.style.display = 'block';
+                 animContainer.style.display = 'block';
+                    animContainer2.style.display = 'block';
+                    animContainer3.style.display = 'block';
+                
+                } 
+                if(moodNum == 3 && sizeNum == 1 || sizeNum == 2 || sizeNum == 3){
+                    img.style.backgroundImage = 'url(audbg1.jpg)';
+                    formContainer.style.display = 'none';
+                bgicon.style.display = 'block';
+//                startTag.style.display = 'block';
+                logo.setAttribute("id","logo2");
+                logo.style.display = 'block';
+                 animContainer.style.display = 'block';
+                    animContainer2.style.display = 'block';
+                    animContainer3.style.display = 'block';
+               
+                }
+                
+                
+              if (moodNum ==0 || sizeNum == 0){
+                formContainer.style.display = 'block';
+                bgicon.style.display = 'none';
+                alert("please complete the form.");
+
+                logo.style.display = 'none';
+                 animContainer.style.display = 'none';
+                    animContainer2.style.display = 'none';
+                    animContainer3.style.display = 'none';
+              }
+
+
+                
+                    
                 
               
             });
@@ -1198,7 +1479,8 @@
 
     function thisYGlow(){
         yGlow.style.display = 'block';
-        display.appendChild(span).innerHTML = 'Loops 2';
+        display.innerHTML = 'Loops 2';
+        display.style.textAlign = "center";
     }
     function noYGlow(){
         yGlow.style.display = 'none';
@@ -1207,6 +1489,7 @@
     function thisAGlow(){
         aGlow.style.display = 'block';
         display.innerHTML = 'Samples';
+        display.style.textAlign = "center";
 
     }
     function noAGlow(){
@@ -1216,6 +1499,7 @@
     function thisQGlow(){
         qGlow.style.display = 'block';
         display.innerHTML = 'Loops 1';
+        display.style.textAlign = "center";
     }
     function noQGlow(){
         qGlow.style.display = 'none';
@@ -1293,13 +1577,6 @@
          });
 
         document.addEventListener("keydown", function (ev) {
-    if (ev.keyCode == 73) {
-        console.log('i');
-        keyI.style.display = 'block';
-    }
-         });
-
-        document.addEventListener("keydown", function (ev) {
     if (ev.keyCode == 74) {
         console.log('j');
         keyJ.style.display = 'block';
@@ -1348,7 +1625,7 @@
          });
 
         document.addEventListener("keydown", function (ev) {
-    if (ev.keyCode == 88) {
+    if (ev.keyCode == 88 ) {
         console.log('x');
         keyX.style.display = 'block';
     }

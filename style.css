@@ -54,7 +54,7 @@
 	
     margin: auto;
     width: auto;
-    height: 30%;
+    height: auto;
     display: none;
 /*     background-color: aqua;*/
   }
@@ -63,9 +63,9 @@
 	position:absolute;
 	left:0;
     right:0;
-    bottom:-100px;
+    bottom:0px;
     margin: auto;
-    width: 90vw;
+    width: 50vw;
     height: auto;
     display: none;
 /*    background-color: ;*/
@@ -257,7 +257,9 @@ li:hover {
             font-size:10pt;
 }
 
-
+#display{
+  z-index: 1;
+}
 
  /* USER FORM */
         
