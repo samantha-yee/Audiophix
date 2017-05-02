@@ -8,7 +8,7 @@
         top: 0;
         left: 0;
         z-index: -100;
-        background: url(audbg1.JPG);
+        background: url(audbg4.JPG);
         transition: 1s;
         overflow: hidden;
 
@@ -30,8 +30,8 @@
     height: auto;
     margin: auto;
     position: absolute; 
-    right: 0;
-    top: 0;
+    right: 20px;
+    top: 20px;
 }
  /* ANIMATION */
 
@@ -63,9 +63,9 @@
 	position:absolute;
 	left:0;
     right:0;
-    bottom:0px;
+    bottom:-150px;
     margin: auto;
-    width: 50vw;
+    width: 90vw;
     height: auto;
     display: none;
 /*    background-color: ;*/
@@ -106,9 +106,7 @@ i:hover {
 	opacity: 1;
 	
 }
-#right {
-	float: right;
-}
+
 
 #bgswipe {
 	display: none;
@@ -122,11 +120,9 @@ i:hover {
 
 #bgOpts {
 	position: absolute;
-	text-align: center;
 	color: white;
-	left: 0;
-	right: 0;
-	bottom: 20px;
+	left: 50px;
+  top: 20px;
 	margin: auto;
 
 }
@@ -183,6 +179,18 @@ li:hover {
 	visibility: hidden;
 }
 
+/* BG DOTS*/
+
+#dots {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 300px;
+  color: white;
+  margin: auto;
+}
+
 /* START BUTTON */
 	p {
 		font-family: 'ginora_sans';
@@ -211,7 +219,7 @@ li:hover {
         
   @keyframes colorAnim {
     0% {opacity: .2;}   
-    75% {opacity: 1;}
+    50% {opacity: 1;}
     100% {opacity: .2;}
       } 
 
@@ -236,10 +244,10 @@ li:hover {
 /*   INFO ICON*/
 
 #infoicon {
-	position: absolute;
-	top: 50px;
-	left: 50px;
+	position: relative;
+  top: 10px;
 	opacity: .4;
+
 }
 
 #infoicon:hover{
@@ -247,20 +255,6 @@ li:hover {
     cursor: pointer;
 }
 
-#learnmore-info {
-	width: 600px;
-	height: auto;
-	background-color: rgba(255, 255, 255, .3);
-	box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
-	position: absolute;
-	top: 0px;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-    display: none;
-    padding:50px;
-}
 
 #info-stuff {
 	            color: #000000;
@@ -274,7 +268,7 @@ li:hover {
 
  /* USER FORM */
         
-           #formContainer{
+           #formContainer, #learnmore-info{
             position: absolute;
             top: 100px;
             left: 0px;
@@ -284,37 +278,37 @@ li:hover {
             padding: 10px;
             margin: auto;
     
-    		background-color: rgba(255, 255, 255, .3);
-			box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
-               display: none;
+    		    background-color: rgba(255, 255, 255, .3);
+			      box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
+            display: none;
 
-               transition: 1s;
+            transition: 1s;
                
         }
 
         form h3, h2{
            font-family: coquetteRegular;
-           font-weight: 100;
+
            color: white;
         }
 
 
  #submitBtn, #start{  
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-		border: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+		  border: none;
     	border-radius: 6px;
     	background-color: rgba(0,0,0,0.4);
-		color: #ffffff;
-		width: 30%;
+		  color: #ffffff;
+		  width: 30%;
     	text-align: center;
     	font-family: coquetteRegular;
     	font-size: 20pt;
     	transition: .2s;
-       }
+}
 
 #submitBtn:hover, #start:hover{
     cursor: pointer;
@@ -398,6 +392,21 @@ li:hover {
       bottom: 200px;
     }
 
+
+#locked {
+  display: none;
+  background-color: rgba(0,0,0,.4);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .2s;
+}
+
+body {
+  overflow: hidden;
+}
 
 
 
