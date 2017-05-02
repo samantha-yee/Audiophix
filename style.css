@@ -68,6 +68,7 @@
     width: 90vw;
     height: auto;
     display: none;
+    z-index: -1;
 /*    background-color: ;*/
   }
 
