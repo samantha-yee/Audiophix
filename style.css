@@ -86,7 +86,7 @@
 
 @font-face {
  font-family: 'coquetteRegular';
-	src: url(fonts/coquette/Coquette%20Regular.ttf);
+	src: url(fonts/Coquette/Coquette%20Regular.ttf);
 	font-weight: 100;
             
 }
@@ -334,6 +334,12 @@ li:hover {
 
 #aGlow {
 	display: none;
+}
+
+/*About us & Audiophix*/
+
+#about-us {
+  display: none;
 }
 
 /*Graffiti Anim*/

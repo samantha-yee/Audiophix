@@ -45,20 +45,18 @@
  			<li id='bg1' onMouseOver='showThis1(this)'>•</li> 
  			<li id='bg2' onMouseover='showThis2(this)'>•</li> 
  			<li id='bg3' onMouseOver='showThis3(this)'>•</li>
+            <li id='bg4' onMouseOver='showThis4(this)'>•</li>
+            <li id='bg5' onMouseOver='showThis5(this)'>•</li>
  		</ul>
  	</p>
  </div>
 
+
+<!--  INFOGRAPHIC DIV -->
+
  <div id='learnmore-info'>
     <h2>Audiophix</h2>
-        <p>Audiophix is an interactive audio/visual experience. Mix and match your sounds and visuals with just a tap of a key. Audiophix stands for consumer advocacy and encourages community dialogue on future “soundscape” releases.
-    <h2>About the ceators of Audiophix</h2>
-        <p>Audiophix was created by Neelam Wooley and Sam Yee.  Two BCIT Digital Design and Development students from Vancouver who are passionate about the complimenting nature of art and music.</br>
-</br>
- They hope you enjoy their project.
-</p>
-</br>
-<p> For instructions, hover over the keyboard.</p>
+        <p> For instructions, hover over the keyboard.</p>
 </br>
 
 <!--     SVGS -->
@@ -81,6 +79,9 @@
 <button type='button' id='start'>Got it! Let's start!</button>
 
  </div>
+
+
+<!-- FORM FIELD -->
      
 <div id = "formContainer">
 <form id = "form1" name = "form 1">
@@ -105,6 +106,21 @@
 
         </form>
 </div>
+
+
+<!-- ABOUT US & AUDIOPHIX -->
+
+<div id='about-us'>
+    <h2> What is Audiophix?</h2>        
+        <p>Audiophix is an interactive audio/visual experience. Mix and match your sounds and visuals with just a tap of a key. Audiophix stands for consumer advocacy and encourages community dialogue on future “soundscape” releases.
+   
+    <h2>About the ceators of Audiophix</h2>
+        <p>Audiophix was created by Neelam Wooley and Sam Yee.  Two BCIT Digital Design and Development students from Vancouver who are passionate about the complimenting nature of art and music.</br>
+</br>
+ They hope you enjoy their project.
+</p>
+</br>  
+</div> 
 
 
 
@@ -1250,9 +1266,17 @@
                 showThisSound.innerHTML = 'Chill Sounds';
             }
 
+            function showThis4(){
+                showThisSound.innerHTML = 'Yellow Background';
+            }
+            function showThis5(){
+                showThisSound.innerHTML = 'Purple Background';
+            }
+
             function dontShowThis(){
                 showThisSound.style.display = 'none';
             }
+
 
            	
             
@@ -1297,48 +1321,75 @@
 
 
 
-			bg1.addEventListener('click', function(){
-				if (activeBg == 1){
-					console.log('yo');
-					img.style.backgroundImage = 'url(audbg1.jpg)';
-                    sizeNum = 1;
-					bg1.style.opacity = 1;
-					bg2.style.opacity = .4;
-					bg3.style.opacity = .4;					
-					activeBg == 0;
+            bg1.addEventListener('click', function(){
+                if (activeBg == 1){
+                    console.log('yo');
+                    img.style.backgroundImage = 'url(audbg1.jpg)';
+                    bg1.style.opacity = 1;
+                    bg2.style.opacity = .4;
+                    bg3.style.opacity = .4; 
+                    bg4.style.opacity = .4;
+                    bg5.style.opacity = .4;                                 
+                    activeBg == 0;
 
-        
-				}
-			});
+                }
+            })
 
-			bg2.addEventListener('click', function(){
-				if (activeBg == 1){
-					console.log('yo');
-					img.style.backgroundImage = 'url(audbg2.jpg)';
-                    sizeNum = 2;
-					bg2.style.opacity = 1;
-					bg1.style.opacity = .4;
-					bg3.style.opacity = .4;
-					activeBg == 0;
+            bg2.addEventListener('click', function(){
+                if (activeBg == 1){
+                    console.log('yo');
+                    img.style.backgroundImage = 'url(audbg2.jpg)';
+                    bg2.style.opacity = 1;
+                    bg1.style.opacity = .4;
+                    bg3.style.opacity = .4;
+                    bg4.style.opacity = .4;
+                    bg5.style.opacity = .4;                   
+                    activeBg == 0;
 
-                   
-				}
-			});
+                }
+            })
 
-			bg3.addEventListener('click', function(){
-				if (activeBg == 1){
-					console.log('yo');
-					img.style.backgroundImage = 'url(audbg3.jpg)';
-                    sizeNum = 3;
-					bg3.style.opacity = 1;
-					bg1.style.opacity = .4;
-					bg2.style.opacity = .4;
-					activeBg == 0;
+            bg3.addEventListener('click', function(){
+                if (activeBg == 1){
+                    console.log('yo');
+                    img.style.backgroundImage = 'url(audbg3.jpg)';
+                    bg3.style.opacity = 1;
+                    bg1.style.opacity = .4;
+                    bg2.style.opacity = .4;
+                    bg4.style.opacity = .4;
+                    bg5.style.opacity = .4;
+                    activeBg == 0;
 
+                }
+            })
 
+            bg4.addEventListener('click', function(){
+                if (activeBg == 1){
+                    console.log('yo');
+                    img.style.backgroundImage = 'url(audbg4.jpg)';
+                    bg4.style.opacity = 1;
+                    bg1.style.opacity = .4;
+                    bg2.style.opacity = .4;
+                    bg5.style.opacity = .4;
+                    bg3.style.opacity = .4;
+                    activeBg == 0;
 
-				}
-			});
+                }
+            })  
+            
+            bg5.addEventListener('click', function(){
+                if (activeBg == 1){
+                    console.log('yo');
+                    img.style.backgroundImage = 'url(audbg5.jpg)';
+                    bg5.style.opacity = 1;
+                    bg1.style.opacity = .4;
+                    bg2.style.opacity = .4;
+                    bg4.style.opacity = .4;
+                    bg3.style.opacity = .4;                    
+                    activeBg == 0;
+
+                }
+            })    
 
 			var infoicon = document.getElementById('infoicon');
             var infoContainer = document.getElementById('learnmore-info');
