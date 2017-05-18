@@ -43,33 +43,33 @@
     margin: auto;
     width: auto;
     height: auto;
-/*      background-color: aqua;  */  
+     /* background-color: aqua;  */  
   }
 
 
 
 #animation_container2 {
-	position:absolute;
-    right:100px;
-	
+position:absolute;
+  display: none;  
+  right:100px;
+  top:0;
     margin: auto;
     width: auto;
     height: auto;
-    display: none;
-/*     background-color: aqua;*/
+      /*background-color: aqua; */
   }
 
 #animation_container3 {
 	position:absolute;
 	left:0;
     right:0;
-    bottom:-150px;
+    bottom:-10px;
     margin: auto;
-    width: 90vw;
+    width: 50vw;
     height: auto;
     display: none;
     z-index: -1;
-/*    background-color: ;*/
+   /* background-color: aqua;*/
   }
 
 #gifsize{
@@ -156,7 +156,7 @@ li:hover {
 #bgicon {
 	display: none;
 	opacity: .3;
-
+  z-index: 2000;
 	transition: .2s;
 
 }
@@ -421,51 +421,108 @@ body {
     }
 }*/
 
-@media only screen and (max-width: 650px){
-  #img {
-    width: 300% ;
-}
-#animation_container1 {
-  top: 25px;
-  width: 400px;
-  left: 0;
-  right:0;
-  margin: auto;
-
-}
-#animation_container2 {
-  bottom: 10px;
-
-  width: 100vw;
-
-
-}
-#animation_container3 {
-  top: 30%;
-  left:-100px ;
-  width: 150%;
-  margin: auto;
-}
-
-
-#bgOpts {
-top: 20px;
-display: inline;
-align-content: center;
-
-}
-
-
-}
- @media only screen and (max-width: 400px){ 
-  #formContainer, #learnmore-info {
-    width: 300px;
-    top: 30%;
+@media only screen  and (max-width : 1920px) {
+ #formContainer, #learnmore-info {
+    width: 600px;
+    top: 20%;
   }
 }
 
 
+@media only screen  and (max-width : 769px) {
+#formContainer, #learnmore-info {
+    width: 400px;
+    top: 20%;
+  }
 
+   #start {
+      font-size: 16pt;
+    }
+
+    #logo img{
+      width: 308px;
+}
+
+#animation_container {
+     position: absolute;
+     right: 0;
+     left: 200px;
+     top: 0; 
+     width: 90vw;
+}
+#animation_container2 {
+
+  position: absolute;
+     right: 0;
+     left: 200px;
+     top: 30%; 
+     width: 90vw;
+}
+#animation_container3 {
+  width: 90vw;
+
+  
+}
+
+}
+
+
+ @media only screen and (max-width: 420px){ 
+  #formContainer, #learnmore-info {
+    width: 300px;
+    top: 30%;
+  }
+
+     #logo img{
+      width: 208px;
+}
+
+#submitBtn {
+  font-size: 14pt;
+}
+
+#animation_container {
+     position: absolute;
+     right: 0;
+     left: 100px;
+     top: 0; 
+     width: 90vw;
+}
+#animation_container2 {
+
+  position: absolute;
+     right: 0;
+     left: 100px;
+     top: 30%; 
+     width: 90vw;
+}
+#animation_container3 {
+  width: 90vw;
+
+  
+}
+
+}
+
+
+ @media only screen and (max-width: 320px){ 
+  #formContainer, #learnmore-info {
+    width: 200px;
+    top: 30%;
+  }
+
+   #start {
+      font-size: 12pt;
+    }
+
+        #logo img{
+      width: 108px;
+}
+
+#submitBtn {
+  font-size: 12pt;
+}
+}
 
 
 
