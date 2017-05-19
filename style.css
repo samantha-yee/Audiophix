@@ -32,6 +32,17 @@
     position: absolute; 
     right: 20px;
     top: 20px;
+    cursor: pointer;
+}
+
+#logo3 img{
+    width: 302px;
+    height: auto;
+    margin: auto;
+    position: absolute; 
+    right: 20px;
+    top: 20px;
+    
 }
  /* ANIMATION */
 
@@ -278,7 +289,7 @@ li:hover {
             height: auto;
             padding: 10px;
             margin: auto;
-    
+            border-radius: 9px;
     		    background-color: rgba(255, 255, 255, .3);
 			      box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
             display: none;
@@ -292,6 +303,7 @@ li:hover {
 
            color: white;
         }
+
 
 
  #submitBtn, #start{  
@@ -318,6 +330,11 @@ li:hover {
 
 
 /*Infographic*/
+
+ 
+ #form1 p{ 
+    font-size: 12   pt;
+ }
 
 #yGlow {
 	display: none;
@@ -437,6 +454,7 @@ body {
 
    #start {
       font-size: 16pt;
+      padding: 2px;
     }
 
     #logo img{
@@ -464,7 +482,40 @@ body {
   
 }
 
+#logo3 img{
+  width: 100px;
 }
+
+}
+
+@media only screen and (max-width: 520px){
+
+  #logo2 img{
+    width: 50px;
+  }
+
+  #animation_container {
+     position: absolute;
+     right: 0;
+     left: 120px;
+     top: 0; 
+     width: 90vw;
+}
+  #animation_container2 {
+
+     position: absolute;
+     right: 0;
+     left: 120px;
+     top: 30%; 
+     width: 90vw;
+}
+
+
+}
+
+
+
+
 
 
  @media only screen and (max-width: 420px){ 
@@ -494,12 +545,18 @@ body {
      right: 0;
      left: 100px;
      top: 30%; 
-     width: 90vw;
+     width: 100vw;
 }
 #animation_container3 {
   width: 90vw;
+}
 
-  
+#form1 p{
+  font-size: 8pt;
+}
+
+#logo3 img{
+  width: 40px;
 }
 
 }
@@ -512,7 +569,8 @@ body {
   }
 
    #start {
-      font-size: 12pt;
+      font-size: 10pt;
+      padding: 2px;
     }
 
         #logo img{
